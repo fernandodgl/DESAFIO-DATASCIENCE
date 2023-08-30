@@ -74,11 +74,11 @@ This project uses the Sakila dataset. ETC ETC ETC. Here's how to prepare the dat
 
 ### Clone project
 
-    $ git clone https://github.com/fernandodgl/fpad-challenge
+    $ git clone https://github.com/fernandodgl/DESAFIO-DATASCIENCE
 
 ### Build containers
 
-Inside the 'FPAD-CHALLENGE/desafios-ml/desafio-01' folder (root)
+Inside the 'DESAFIO-DATASCIENCE/desafio_sql/' folder (root)
 
     $ chmod +x run.sh
 
