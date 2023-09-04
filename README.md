@@ -2,7 +2,7 @@
 
 ## Introdução
 
-Currently, with the advancement of technology, security systems that use facial recognition are becoming increasingly common and, at the same time, increasingly vulnerable. As the years go by, more sophisticated techniques etc etc etc bla bla bla
+Currently, with the advancement of technology. As the years go by, more sophisticated techniques etc etc etc bla bla bla
 
 ## Tech Stack Description
 
@@ -80,7 +80,7 @@ This project uses the Sakila dataset. ETC ETC ETC. Here's how to prepare the dat
 
 Inside the 'DESAFIO-DATASCIENCE/desafio_sql/' folder (root)
 
-    $ chmod +x run.sh
+    $ chmod +x setup_sakila.sh
 
 ### Start containers
 

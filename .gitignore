@@ -1,0 +1,24 @@
+# Sakila database dump (original or combined)
+sakila-db.zip
+sakila-dump.sql
+
+# Docker temporary files
+*.log
+
+# General and OS related files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Python related files
+*.pyc
+*.pyo
+__pycache__/
+*.egg-info/
+*.egg
+*.venv
+*.virtualenv
+
+# If you use any specific IDE, add related files. For example, for VSCode:
+.vscode/
