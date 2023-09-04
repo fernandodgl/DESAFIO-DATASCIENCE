@@ -76,6 +76,15 @@ In the same directory:
 $ make all
 ```
 
+After starting the containers, create a superuser for OmniDB:
+
+```bash
+$ docker exec -it desafio_sql-omnidb-1 python omnidb-server.py --createsuperuser=admin pass
+```
+
+This command creates a user with username `admin` and password `pass` for the first login in OmniDB. You'll need these credentials to access the OmniDB web interface.
+
+
 #### Access:
 
 To access the OmniDB web interface, navigate to:
