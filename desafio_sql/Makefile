@@ -1,22 +1,16 @@
 # Variables
-IMAGE_NAME = sakila-mysql-image 
-CONTAINER_NAME = sakila_mysql_container
-
+COMPOSE_FILE = docker-compose.yml
 # Targets
 setup:
 	./setup_sakila.sh
 
-build:
-	docker build -t $(IMAGE_NAME) .
-
-run:
-	docker run --name $(CONTAINER_NAME) -d -p 3306:3306 $(IMAGE_NAME)
+start:
+	docker-compose -f $(COMPOSE_FILE) up -d
 
 stop:
-	docker stop $(CONTAINER_NAME)
-	docker rm $(CONTAINER_NAME)
+	docker-compose -f $(COMPOSE_FILE) down
 
-clean:
-	docker rmi $(IMAGE_NAME)
+logs:
+	docker-compose -f $(COMPOSE_FILE) logs -f
 
-all: setup build run
+all: setup start

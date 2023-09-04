@@ -10,7 +10,7 @@ This project presents the following container:
 
 * MySQL: Database
     * Image: 0.95.0
-    * Database Port: 8000
+    * Database Port: 8080
 
 ## File Structure
 
@@ -92,7 +92,7 @@ At the same path above:
 
 |        Application        |URL                          |Credentials                         |
 |----------------|-------------------------------|-----------------------------|    
-|FastAPI | [http://localhost:8000/docs](http://localhost:8000/docs)|  |         |
+|FastAPI | [http://localhost:8080/docs](http://localhost:8000/docs)|  |         |
   
 
 ## References
