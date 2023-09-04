@@ -1,110 +1,90 @@
-# DESAFIO ÂNIMA - DATASCIENCE
+# DESAFIO-DATASCIENCE
 
 ## Introdução
 
-Currently, with the advancement of technology. As the years go by, more sophisticated techniques etc etc etc bla bla bla
+In the ever-evolving landscape of Data Science, challenges are essential to assess the skills, creativity, and problem-solving capabilities of aspiring Data Scientists. This repository presents solutions for two challenges: The ENEM Data Challenge and the SQL Data Challenge.
 
 ## Tech Stack Description
 
-This project presents the following container:
+The project primarily leverages Docker to ensure a consistent environment, particularly for the SQL challenge:
 
-* MySQL: Database
-    * Image: 0.95.0
-    * Database Port: 8080
+- MySQL: Database
+    - Image: mysql:latest
+    - Database Port: 3306
+- OmniDB: Database Management Tool
+    - Image: omnidbteam/omnidb:latest
+    - Port: 8080
 
 ## File Structure
 
-```bash
+```
 /DESAFIO-DATASCIENCE/
-|-- /Desafio_ENEM/
-|   |-- /data/
-|   |   |-- raw_data.csv
-|   |   |-- cleaned_data.csv
-|   |-- /notebooks/
-|   |   |-- EDA.ipynb
-|   |   |-- Modeling.ipynb
-|   |-- /src/
-|   |   |-- data_preprocessing.py
-|   |   |-- model.py
-|-- /Desafio_SQL/
-|   |-- /queries/
-|   |   |-- question_1.sql
-|   |   |-- question_2.sql
-|   |   |-- ...
-|   |-- /docker/
-|   |   |-- Dockerfile
-|   |   |-- docker-compose.yml
-|   |   |-- init.sql  # Optional: script to automate DB setup
-|   |   |-- sakila-dump.sql  # Optional: local copy of the Sakila database dump
-|-- README.md
-|-- .gitignore
+│
+├── Desafio_ENEM/
+│   ├── data/              # Directory for storing ENEM data files
+│   └── scripts/           # Directory for Python scripts related to the ENEM challenge
+│
+├── Desafio_SQL/
+│   ├── docker-compose.yml
+│   ├── Dockerfile
+│   ├── sakila-db/
+│   │   ├── sakila-data.sql
+│   │   └── sakila-schema.sql
+│   ├── queries/
+│   │   ├── query1.sql
+│   │   ├── query2.sql
+│   │   ├── query3.sql
+│   │   ├── query4.sql
+│   │   ├── query5.sql
+│   │   └── query6.sql
+│   ├── sakila_download.sh
+│   └── Makefile
+│
+└── .gitignore
 ```
 
 ## Dataset
 
-This project uses the Sakila dataset. ETC ETC ETC. Here's how to prepare the data for this project:
+This project uses the Sakila dataset from MySQL. This synthetic dataset represents a fictitious movie rental store, consisting of films, actors, film-actor relationships, and much more. The dataset serves as an excellent tool for practicing SQL queries and understanding relational database structures.
 
-1. Download the Sakila dataset from 'https://dev.mysql.com/doc/sakila/en/sakila-preface.html'
-<!-- 2. Unzip the downloaded file. This should result in a directory structure like the following:
-    ```
-    MLChallenge_Dataset/
-                        data/
-                            1/   
-                                live/
-                                    image1.jpg
-                                    image2.jpg
-                                    image3.jpg
-                                spoof/
-                                    image1.jpg
-                                    image2.jpg
-                                    image3.jpg
-                            2/
-                            ...
-    ```
-3. Move the `data/` subfolder into the `data/` directory in the root of this repository. -->
+### Setup
 
-4. Due to Github storage contraints, you have 2 options to build the model. You can you the notebook included and run the specific cell to make it and then import it to the folder 'model' inside the root. The second option in to run the script inside 'scripts' folder which will run the necessary .py files to build the model. One must notice that, after building the model, you should delete it to avoid conflicts while trying to commit to the repository.
+#### Requirements
 
+- For the Desafio_SQL: Docker must be installed on your machine. This requirement can be ignored if using a Cloud Development Environment (CDE), like Gitpod or GitHub Codespaces.
 
-## Setup
+#### Clone project
 
-### Requirements
-    
-    $ Para o Desafio_SQL: Must have Docker installed in your machine. Ignore it if using CDE (Cloud Development Environment), i.e., Gitpod, GitHub Codespaces, etc
+```bash
+$ git clone https://github.com/fernandodgl/DESAFIO-DATASCIENCE
+```
 
-### Clone project
+#### Build containers
 
-    $ git clone https://github.com/fernandodgl/DESAFIO-DATASCIENCE
+Navigate to the `Desafio_SQL` directory:
 
-### Build containers
+```bash
+$ cd DESAFIO-DATASCIENCE/Desafio_SQL/
+$ chmod +x sakila_download.sh
+```
 
-Inside the 'DESAFIO-DATASCIENCE/desafio_sql/' folder (root)
+#### Start containers
 
-    $ chmod +x setup_sakila.sh
+In the same directory:
 
-### Start containers
+```bash
+$ make all
+```
 
-At the same path above:
+#### Access:
 
-    $ ./run.sh
+To access the OmniDB web interface, navigate to:
 
-### Check if you can access:
-
-|        Application        |URL                          |Credentials                         |
-|----------------|-------------------------------|-----------------------------|    
-|FastAPI | [http://localhost:8080/docs](http://localhost:8000/docs)|  |         |
-  
+|        Application        |URL                          |
+|----------------|-------------------------------|    
+|OmniDB | [http://localhost:8080](http://localhost:8080)|
 
 ## References
 
-https://arxiv.org/pdf/2305.09285.pdf
-
-https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=9925105
-
-https://www.researchgate.net/figure/comparing-cIOU-of-VGG-16-DenseNet121-and-ResNet50-for-a1D1595-while_fig23_330713580
-
-https://openaccess.thecvf.com/content/WACV2021/papers/Zhang_ResNet_or_DenseNet_Introducing_Dense_Shortcuts_to_ResNet_WACV_2021_paper.pdf
-
-https://microscope.openai.com/models/resnetv2_50_slim?models.technique=deep_dream
-
-[CelebA-Spoof Repo](https://github.com/ZhangYuanhan-AI/CelebA-Spoof)
+- [Enem Official Site](https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem)
+- [Sakila Database Information](https://dev.mysql.com/doc/sakila/en/sakila-preface.html)
