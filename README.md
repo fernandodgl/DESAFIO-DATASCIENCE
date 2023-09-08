@@ -2,11 +2,9 @@
 
 ## Introdução
 
-In the ever-evolving landscape of Data Science, challenges are essential to assess the skills, creativity, and problem-solving capabilities of aspiring Data Scientists. This repository presents solutions for two challenges: The ENEM Data Challenge and the SQL Data Challenge.
+Este repositório apresenta soluções para dois desafios: o Desafio de Dados do ENEM e o Desafio de Dados SQL.
 
-## Tech Stack Description
-
-The project primarily leverages Docker to ensure a consistent environment, particularly for the SQL challenge:
+## Descrição da Tecnologia Utilizada
 
 - MySQL: Database
     - Image: mysql:latest
@@ -15,14 +13,14 @@ The project primarily leverages Docker to ensure a consistent environment, parti
     - Image: omnidbteam/omnidb:latest
     - Port: 8080
 
-## File Structure
+## Estrutura de Arquivos
 
 ```
 /DESAFIO-DATASCIENCE/
 │
 ├── Desafio_ENEM/
-│   ├── data/              # Directory for storing ENEM data files
-│   └── scripts/           # Directory for Python scripts related to the ENEM challenge
+│   ├── data/              
+│   └── scripts/           
 │
 ├── Desafio_SQL/
 │   ├── docker-compose.yml
@@ -43,57 +41,57 @@ The project primarily leverages Docker to ensure a consistent environment, parti
 └── .gitignore
 ```
 
-## Dataset
+## Conjunto de Dados
 
-This project uses the Sakila dataset from MySQL. This synthetic dataset represents a fictitious movie rental store, consisting of films, actors, film-actor relationships, and much more. The dataset serves as an excellent tool for practicing SQL queries and understanding relational database structures.
+Este projeto utiliza o conjunto de dados Sakila do MySQL. Este conjunto de dados sintético representa uma locadora de filmes fictícia, composta por filmes, atores, relações filme-ator e muito mais. O conjunto de dados serve como uma excelente ferramenta para praticar consultas SQL e entender estruturas de bancos de dados relacionais.
 
-### Setup
+### Configuração
 
-#### Requirements
+#### Requisitos
 
-- For the Desafio_SQL: Docker must be installed on your machine. This requirement can be ignored if using a Cloud Development Environment (CDE), like Gitpod or GitHub Codespaces.
+- Para o Desafio_SQL: O Docker deve estar instalado em sua máquina. Este requisito pode ser ignorado se estiver usando um Ambiente de Desenvolvimento em Nuvem (CDE), como o Gitpod ou o GitHub Codespaces.
 
-#### Clone project
+#### Clonar projeto
 
 ```bash
 $ git clone https://github.com/fernandodgl/DESAFIO-DATASCIENCE
 ```
 
-#### Build containers
+#### Construir containers
 
-Navigate to the `Desafio_SQL` directory:
+Navegue até o diretório 'Desafio_SQL':
 
 ```bash
 $ cd DESAFIO-DATASCIENCE/Desafio_SQL/
 $ chmod +x sakila_download.sh
 ```
 
-#### Start containers
+#### Iniciar containers
 
-In the same directory:
+No mesmo diretório:
 
 ```bash
 $ make all
 ```
 
-After starting the containers, create a superuser for OmniDB:
+Após iniciar os containers, crie um superusuário para o OmniDB:
 
 ```bash
 $ docker exec -it desafio_sql-omnidb-1 python omnidb-server.py --createsuperuser=admin pass
 ```
 
-This command creates a user with username `admin` and password `pass` for the first login in OmniDB. You'll need these credentials to access the OmniDB web interface.
+Este comando cria um usuário com nome de usuário admin e senha pass para o primeiro login no OmniDB. Você precisará dessas credenciais para acessar a interface web do OmniDB.
 
 
-#### Access:
+#### Acesso:
 
-To access the OmniDB web interface, navigate to:
+Para acessar a interface web do OmniDB, navegue até:
 
-|        Application        |URL                          |
+|        Applicação        |URL                          |
 |----------------|-------------------------------|    
 |OmniDB | [http://localhost:8080](http://localhost:8080)|
 
-## References
+## Referências
 
 - [Enem Official Site](https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem)
 - [Sakila Database Information](https://dev.mysql.com/doc/sakila/en/sakila-preface.html)
